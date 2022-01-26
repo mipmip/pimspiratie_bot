@@ -1,0 +1,18 @@
+version: 2.0
+shards:
+  db:
+    git: https://github.com/crystal-lang/crystal-db.git
+    version: 0.10.1
+
+  dotenv:
+    git: https://github.com/gdotdesign/cr-dotenv.git
+    version: 1.0.0
+
+  http_proxy:
+    git: https://github.com/mamantoha/http_proxy.git
+    version: 0.8.0+git.commit.affc16af1c21350daf5da865dd212b1ee7b2e9c2
+
+  tourmaline:
+    git: https://github.com/protoncr/tourmaline.git
+    version: 0.25.1
+

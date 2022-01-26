@@ -1,0 +1,19 @@
+name: pimspiratie_bot
+version: 0.1.0
+
+authors:
+  - Pim Snel <post@pimsnel.com>
+
+targets:
+  pimspiratie_bot:
+    main: src/pimspiratie_bot.cr
+
+crystal: 1.2.0
+
+license: MIT
+
+dependencies:
+  tourmaline:
+    github: protoncr/tourmaline
+  dotenv:
+    github: gdotdesign/cr-dotenv
