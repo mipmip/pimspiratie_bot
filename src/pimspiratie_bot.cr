@@ -3,9 +3,7 @@ require "http/request"
 require "file"
 require "dotenv"
 
-
-# The default file is ".env"
-Dotenv.load #".env-file"
+Dotenv.load
 
 module PimspiratieBot
   VERSION = "0.1.0"
@@ -52,7 +50,7 @@ class EchoBot < Tourmaline::Client
 
   def filename_basename(ctx)
     date = ctx.message.date.to_s.split(" ")[0]
-    "messages/" + ctx.message.message_id.to_s + "_" + date + "_"
+    ENV["DATA_DIR"] + "/" + date + "_" + ctx.message.message_id.to_s + "_"
   end
 
   @[Command("echo")]
@@ -72,8 +70,11 @@ class EchoBot < Tourmaline::Client
 
     if link = get_file_link(photo.file_id)
       HTTP::Client.get(link) do |response|
-       File.write(filename_basename(ctx) + "_image.jpg", response.body_io)
+        filename = filename_basename(ctx) + "image" + File.extname(link)
+        File.write(filename, response.body_io)
+        pp "wrote new image: " + filename
       end
+
     end
   end
 end
